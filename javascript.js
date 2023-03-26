@@ -1,63 +1,18 @@
-var array1 = new Array(5);
-var array2 = [
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  1,
-  "string",
-  true,
-  "phan tu cuoi",
-];
-// console.log(array2.length);
+// console.log(a);
+// var a = "10";
 
-// console.log(array2[array2.length - 1]);
-// array2[index];
+// ! hoisting: nó sẽ đưa khai báo của các biến lên trên cùng file
+// var a;
+//log
+// a= '10'
+console.log(sum(1, 2));
 
-for (index = 0; index < array2.length; index++) {
-  document.write(array2[index] + "-");
+function sum(a, b) {
+  return a + b;
 }
+
+const a = 5;
+
+const sum = function (a, b) {
+  return a + b;
+};

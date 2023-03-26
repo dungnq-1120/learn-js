@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.3/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="javascript.js"></script>
+    <title>Document</title>
+    <style>
+      .img_cart {
+        width: 50px;
+        position: relative;
+      }
+
+      .cart .cart_SoLuong {
+        display: inline-block;
+        background-color: red;
+        text-align: center;
+        border-radius: 50%;
+        position: absolute;
+        top: 0px;
+        right: 0;
+        height: 20px;
+        width: 20px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="cart mt-3 d-flex justify-content-end">
+        <div class="img_cart">
+          <img src="./cart.svg" />
+          <span class="cart_SoLuong"></span>
+        </div>
+      </div>
+      <div class="product d-flex flex-wrap justify-content-between mt-5"></div>
+    </div>
+  </body>
+  <script>
+    function valueHang() {
+      const person = [
+        {
+          id: 0,
+          name: "Sản Phẩm 1",
+          price: 500,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 1,
+          name: "Sản Phẩm 2",
+          price: 550,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 2,
+          name: "Sản Phẩm 3",
+          price: 600,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 3,
+          name: "Sản Phẩm 4",
+          price: 700,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 4,
+          name: "Sản Phẩm 5",
+          price: 800,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 5,
+          name: "Sản Phẩm 6",
+          price: 900,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 6,
+          name: "Sản Phẩm 7",
+          price: 1000,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 7,
+          name: "Sản Phẩm 8",
+          price: 1000,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+        {
+          id: 8,
+          name: "Sản Phẩm 9",
+          price: 1000,
+          img: "https://didongviet.vn/pub/media/catalog/product//i/p/iphone-14-plus-128gb-didongviet.jpg",
+          number: 1,
+        },
+      ];
+      return person;
+    }
+    function suatHang() {
+      valueHang().forEach(xuat);
+      function xuat(item, index) {
+        document.getElementsByClassName("product")[0].innerHTML +=
+          '<div class="card mb-4  " style="width:300px ; height:500px">' +
+          '<div style = "height:50%">' +
+          '<img class="card-img-top " src = ' +
+          item.img +
+          ' alt = "Card image" style = "width:100% ; height: 100%;" >' +
+          "</div>" +
+          '<div class="card-body h-50"<h4 class="card-title">' +
+          item.name +
+          '</h4><p class="card-text">Some example text some example text. John Doe is an architect and engineer</p><p class = "gia_tien">Giá Tiền : ' +
+          item.price +
+          '</p><a href="#" class="btn btn-primary them_san_pham" data-index = ' +
+          index +
+          ">Thêm Sản Phẩm</a></div></div > ";
+      }
+    }
+
+    function themHang() {
+      let x = [document.getElementsByClassName("them_san_pham")];
+      x.map(xuat);
+      function xuat(event) {
+        for (let i = 0; i < event.length; i++) {
+          event[i].addEventListener("click", myFunction);
+        }
+      }
+    }
+    function myFunction() {
+      let x = this.getAttribute("data-index");
+      valueHang().forEach(xuat);
+      function xuat(item, index) {
+        if (index == x) {
+          arraySanPham(item);
+        }
+      }
+    }
+    function arraySanPham(item) {
+      let arraySanPham = JSON.parse(localStorage.getItem("names")) || [];
+      if (arraySanPham.length == 0) {
+        arraySanPham.push(item);
+        localStorage.setItem("names", JSON.stringify(arraySanPham));
+      }
+      // [0, 1]; arraySanPham
+      // 1 item
+      // for (let i = 0; i < arraySanPham.length; i++) {
+      //   if (arraySanPham[i].id === item.id) {
+      //     arraySanPham[i].number += 1;
+      //     localStorage.setItem("names", JSON.stringify(arraySanPham));
+      //     break;
+      //   } else {
+      //     arraySanPham.push(item);
+      //     localStorage.setItem("names", JSON.stringify(arraySanPham));
+      //     break;
+      //   }
+      // }
+
+      var indexItem = arraySanPham.findIndex(function (itemSp) {
+        return itemSp.id === item.id;
+      });
+
+      if (indexItem === -1) {
+        arraySanPham.push(item);
+        localStorage.setItem("names", JSON.stringify(arraySanPham));
+      } else {
+        arraySanPham[indexItem].number += 1;
+        localStorage.setItem("names", JSON.stringify(arraySanPham));
+      }
+      //arraySanPham.push(item);localStorage.setItem("names", JSON.stringify(arraySanPham));
+    }
+
+    suatHang();
+    themHang();
+  </script>
+</html>

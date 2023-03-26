@@ -1,7 +1,28 @@
-.bg-warning {
-  background-color: red !important;
+/* label {
+  display: inline-block;
+  width: 150px;
 }
 
-.banner {
-  width: 500px;
+input,
+select {
+  width: 200px;
+  margin: 10px;
+}
+
+form {
+  width: 400px;
+  padding: 25px;
+  border: 5px solid black;
+} */
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+img {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
 }

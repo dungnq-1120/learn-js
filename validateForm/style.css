@@ -1,0 +1,15 @@
+label {
+  display: inline-block;
+  width: 150px;
+}
+
+input {
+  width: 200px;
+}
+
+.group-input {
+  width: 380px;
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}

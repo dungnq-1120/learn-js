@@ -1,0 +1,18 @@
+.product-list {
+  width: 80%;
+}
+.number-cart {
+  position: absolute;
+  right: 1px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 25px;
+  width: 25px;
+  height: 25px;
+  background-color: black;
+  color: wheat;
+}
+
+.cart {
+  position: relative;
+}
